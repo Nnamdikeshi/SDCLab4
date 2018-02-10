@@ -49,8 +49,8 @@ class PhoneAssignments():
         for e in self.employees:
             if e.id == employee.id:
                 raise PhoneError('Employee ID %s is already assigned, can\'t add again' % employee.id)
-        else:
-            self.employees.append(employee)
+
+        self.employees.append(employee)
 
 
     def add_phone(self, phone):
@@ -103,8 +103,11 @@ class PhoneAssignments():
             if phone.employee_id == employee.id:
                 return phone
 
+        for e in self.employees:
+            if e == employee:
+                return None
 
-        return None
+        raise PhoneError('That employee does not exist!')
 
 
 class PhoneError(Exception):
