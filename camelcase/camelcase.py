@@ -1,14 +1,23 @@
 def camelcase(words):
     '''Convert word to have uppercase first leter, rest in lowercase'''
-    output =''
-    words = words.split(' ')                                        # Break by spaces
-    output += (words[0].lower())                             # Lowercase first word
-    for word in words[1:]:
-        output += (word[0].upper() + word[1:].lower())   # camelCase everything
+    words = words.strip()   # Strip leading and following spaces
+
+    # Add to a new string newWords if the character is alpha numeric or space
+    newWords = ''
+    for c in words:
+        if c.isalnum() or c == ' ':
+            newWords += c
+
+    newWords = newWords.split(' ')  # Break by spaces
+
+    output = ''
+
+    output += (newWords[0].lower())                      # Lowercase first word
+    for word in newWords[1:]:
+        output += (word[0].upper() + word[1:].lower())   # camelCase everythingelse
 
     return output
-    # Slices don't produce index out of bounds errors.
-    # So this still works on empty strings, strings of length 1
+
 
 def display_banner():
     '''Display program name in a banner'''
