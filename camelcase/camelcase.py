@@ -14,7 +14,10 @@ def camelcase(words):
 
     output += (newWords[0].lower())                      # Lowercase first word
     for word in newWords[1:]:
-        output += (word[0].upper() + word[1:].lower())   # camelCase everythingelse
+        if word == '':                                  # Removes empty indexes
+            newWords.remove(word)
+        else:
+            output += (word[0].upper() + word[1:].lower())   # camelCase everythingelse
 
     return output
 
