@@ -98,16 +98,15 @@ class PhoneAssignments():
 
         # TODO  should return None if the employee does not have a phone
         # TODO  the method should raise an exception if the employee does not exist
+        if employee not in self.employees:
+            raise PhoneError('That employee does not exist!')
 
         for phone in self.phones:
             if phone.employee_id == employee.id:
                 return phone
 
-        for e in self.employees:
-            if e == employee:
-                return None
+        return None
 
-        raise PhoneError('That employee does not exist!')
 
 
 class PhoneError(Exception):

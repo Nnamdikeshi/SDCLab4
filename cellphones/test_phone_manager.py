@@ -202,3 +202,6 @@ class TestPhoneManager(unittest.TestCase):
         self.assertEqual(testAssignmentMgr.phone_info(testEmployee1), testPhone1)
         self.assertEqual(testAssignmentMgr.phone_info(testEmployee2), testPhone2)
         self.assertIsNone(testAssignmentMgr.phone_info(testEmployee3))
+
+        with self.assertRaises(PhoneError):
+            testAssignmentMgr.assign(testAssignmentMgr.phone_info(None))
