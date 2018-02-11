@@ -153,7 +153,7 @@ class TestPhoneManager(unittest.TestCase):
         testAssignmentMgr.add_employee(testEmployee2)
         testAssignmentMgr.add_employee(testEmployee3)
 
-        # Assigne phone 1 to employee1, and try to assign phone 2 to employee1 again: It should raise PhoneError
+        # Assigne phone 1 to employee1, and try to assign phone 1 to employee1 again
         testAssignmentMgr.assign(testPhone1.id, testEmployee1)
         testAssignmentMgr.assign(testPhone1.id, testEmployee1)
 
